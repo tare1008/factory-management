@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx prisma *)",
+      "Bash(npx tsc *)",
+      "Bash(npx playwright *)",
+      "Read(//home/atharvatare/.cache/**)"
+    ]
+  }
+}

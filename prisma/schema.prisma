@@ -1,0 +1,82 @@
+// Prisma schema for the Material & Operations Management System.
+// See prisma7.config.ts for the datasource URL / migrations path.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  OWNER
+  ADMIN
+  STOREKEEPER
+}
+
+model User {
+  id             String          @id @default(cuid())
+  username       String          @unique
+  passwordHash   String
+  name           String
+  role           Role
+  createdAt      DateTime        @default(now())
+  inboundEntries InboundEntry[]
+  outboundEntries OutboundEntry[]
+}
+
+model Item {
+  id                String          @id @default(cuid())
+  name              String          @unique
+  unit              String
+  lowStockThreshold Decimal         @db.Decimal(12, 3)
+  createdAt         DateTime        @default(now())
+  inboundEntries    InboundEntry[]
+  outboundEntries   OutboundEntry[]
+  suppliers         Supplier[]      @relation("SupplierMaterials")
+}
+
+model Supplier {
+  id             String         @id @default(cuid())
+  name           String         @unique
+  contactInfo    String?
+  address        String?
+  createdAt      DateTime       @default(now())
+  inboundEntries InboundEntry[]
+  materials      Item[]         @relation("SupplierMaterials")
+}
+
+model InboundEntry {
+  id             String   @id @default(cuid())
+  item           Item     @relation(fields: [itemId], references: [id])
+  itemId         String
+  supplier       Supplier @relation(fields: [supplierId], references: [id])
+  supplierId     String
+  quantity       Decimal  @db.Decimal(12, 3)
+  rate           Decimal  @db.Decimal(12, 2)
+  date           DateTime
+  recordedBy     User     @relation(fields: [recordedByUserId], references: [id])
+  recordedByUserId String
+  notes          String?
+  createdAt      DateTime @default(now())
+
+  @@index([itemId])
+  @@index([supplierId])
+}
+
+model OutboundEntry {
+  id             String   @id @default(cuid())
+  item           Item     @relation(fields: [itemId], references: [id])
+  itemId         String
+  quantity       Decimal  @db.Decimal(12, 3)
+  purpose        String
+  date           DateTime
+  recordedBy     User     @relation(fields: [recordedByUserId], references: [id])
+  recordedByUserId String
+  notes          String?
+  createdAt      DateTime @default(now())
+
+  @@index([itemId])
+}

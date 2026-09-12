@@ -1,26 +1,220 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Full palette — every family and shade available as a utility
+     (bg-deep-space-blue-700, text-steel-blue-600, border-papaya-whip-300, …). */
+  --color-molten-lava-50: #ffe5e5;
+  --color-molten-lava-100: #ffcccc;
+  --color-molten-lava-200: #ff9999;
+  --color-molten-lava-300: #ff6666;
+  --color-molten-lava-400: #ff3333;
+  --color-molten-lava-500: #ff0000;
+  --color-molten-lava-600: #cc0000;
+  --color-molten-lava-700: #990000;
+  --color-molten-lava-800: #660000;
+  --color-molten-lava-900: #330000;
+  --color-molten-lava-950: #240000;
+
+  --color-brick-red-50: #fde8e9;
+  --color-brick-red-100: #fbd0d3;
+  --color-brick-red-200: #f6a2a7;
+  --color-brick-red-300: #f2737b;
+  --color-brick-red-400: #ee4450;
+  --color-brick-red-500: #e91624;
+  --color-brick-red-600: #bb111d;
+  --color-brick-red-700: #8c0d15;
+  --color-brick-red-800: #5d090e;
+  --color-brick-red-900: #2f0407;
+  --color-brick-red-950: #210305;
+
+  --color-papaya-whip-50: #fef6e7;
+  --color-papaya-whip-100: #fdedce;
+  --color-papaya-whip-200: #fadb9e;
+  --color-papaya-whip-300: #f8ca6d;
+  --color-papaya-whip-400: #f6b83c;
+  --color-papaya-whip-500: #f4a60b;
+  --color-papaya-whip-600: #c38509;
+  --color-papaya-whip-700: #926407;
+  --color-papaya-whip-800: #614205;
+  --color-papaya-whip-900: #312102;
+  --color-papaya-whip-950: #221702;
+
+  --color-deep-space-blue-50: #e5f6ff;
+  --color-deep-space-blue-100: #ccedff;
+  --color-deep-space-blue-200: #99dbff;
+  --color-deep-space-blue-300: #66c9ff;
+  --color-deep-space-blue-400: #33b8ff;
+  --color-deep-space-blue-500: #00a6ff;
+  --color-deep-space-blue-600: #0085cc;
+  --color-deep-space-blue-700: #006399;
+  --color-deep-space-blue-800: #004266;
+  --color-deep-space-blue-900: #002133;
+  --color-deep-space-blue-950: #001724;
+
+  --color-steel-blue-50: #edf3f7;
+  --color-steel-blue-100: #dce8ef;
+  --color-steel-blue-200: #b8d1e0;
+  --color-steel-blue-300: #95b9d0;
+  --color-steel-blue-400: #71a2c1;
+  --color-steel-blue-500: #4e8bb1;
+  --color-steel-blue-600: #3e6f8e;
+  --color-steel-blue-700: #2f536a;
+  --color-steel-blue-800: #1f3847;
+  --color-steel-blue-900: #101c23;
+  --color-steel-blue-950: #0b1319;
+
+  /* Semantic aliases used throughout the app's components. Cool blues
+     (deep-space-blue / steel-blue) carry structure, navigation, and
+     primary actions; warm tones (papaya-whip / brick-red / molten-lava)
+     are reserved for status and attention. */
+  --color-brand-navy: var(--color-deep-space-blue-950);
+  --color-brand-indigo: var(--color-deep-space-blue-700);
+  --color-brand-indigo-dark: var(--color-deep-space-blue-800);
+  --color-brand-violet: var(--color-steel-blue-700);
+  --color-brand-lavender: var(--color-steel-blue-400);
+  --color-brand-accent: var(--color-deep-space-blue-500);
+
+  --background: #f4f8fb;
+  --foreground: var(--color-brand-navy);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-molten-lava-50: var(--color-molten-lava-50);
+  --color-molten-lava-100: var(--color-molten-lava-100);
+  --color-molten-lava-200: var(--color-molten-lava-200);
+  --color-molten-lava-300: var(--color-molten-lava-300);
+  --color-molten-lava-400: var(--color-molten-lava-400);
+  --color-molten-lava-500: var(--color-molten-lava-500);
+  --color-molten-lava-600: var(--color-molten-lava-600);
+  --color-molten-lava-700: var(--color-molten-lava-700);
+  --color-molten-lava-800: var(--color-molten-lava-800);
+  --color-molten-lava-900: var(--color-molten-lava-900);
+  --color-molten-lava-950: var(--color-molten-lava-950);
+
+  --color-brick-red-50: var(--color-brick-red-50);
+  --color-brick-red-100: var(--color-brick-red-100);
+  --color-brick-red-200: var(--color-brick-red-200);
+  --color-brick-red-300: var(--color-brick-red-300);
+  --color-brick-red-400: var(--color-brick-red-400);
+  --color-brick-red-500: var(--color-brick-red-500);
+  --color-brick-red-600: var(--color-brick-red-600);
+  --color-brick-red-700: var(--color-brick-red-700);
+  --color-brick-red-800: var(--color-brick-red-800);
+  --color-brick-red-900: var(--color-brick-red-900);
+  --color-brick-red-950: var(--color-brick-red-950);
+
+  --color-papaya-whip-50: var(--color-papaya-whip-50);
+  --color-papaya-whip-100: var(--color-papaya-whip-100);
+  --color-papaya-whip-200: var(--color-papaya-whip-200);
+  --color-papaya-whip-300: var(--color-papaya-whip-300);
+  --color-papaya-whip-400: var(--color-papaya-whip-400);
+  --color-papaya-whip-500: var(--color-papaya-whip-500);
+  --color-papaya-whip-600: var(--color-papaya-whip-600);
+  --color-papaya-whip-700: var(--color-papaya-whip-700);
+  --color-papaya-whip-800: var(--color-papaya-whip-800);
+  --color-papaya-whip-900: var(--color-papaya-whip-900);
+  --color-papaya-whip-950: var(--color-papaya-whip-950);
+
+  --color-deep-space-blue-50: var(--color-deep-space-blue-50);
+  --color-deep-space-blue-100: var(--color-deep-space-blue-100);
+  --color-deep-space-blue-200: var(--color-deep-space-blue-200);
+  --color-deep-space-blue-300: var(--color-deep-space-blue-300);
+  --color-deep-space-blue-400: var(--color-deep-space-blue-400);
+  --color-deep-space-blue-500: var(--color-deep-space-blue-500);
+  --color-deep-space-blue-600: var(--color-deep-space-blue-600);
+  --color-deep-space-blue-700: var(--color-deep-space-blue-700);
+  --color-deep-space-blue-800: var(--color-deep-space-blue-800);
+  --color-deep-space-blue-900: var(--color-deep-space-blue-900);
+  --color-deep-space-blue-950: var(--color-deep-space-blue-950);
+
+  --color-steel-blue-50: var(--color-steel-blue-50);
+  --color-steel-blue-100: var(--color-steel-blue-100);
+  --color-steel-blue-200: var(--color-steel-blue-200);
+  --color-steel-blue-300: var(--color-steel-blue-300);
+  --color-steel-blue-400: var(--color-steel-blue-400);
+  --color-steel-blue-500: var(--color-steel-blue-500);
+  --color-steel-blue-600: var(--color-steel-blue-600);
+  --color-steel-blue-700: var(--color-steel-blue-700);
+  --color-steel-blue-800: var(--color-steel-blue-800);
+  --color-steel-blue-900: var(--color-steel-blue-900);
+  --color-steel-blue-950: var(--color-steel-blue-950);
+
+  --color-brand-navy: var(--color-brand-navy);
+  --color-brand-indigo: var(--color-brand-indigo);
+  --color-brand-indigo-dark: var(--color-brand-indigo-dark);
+  --color-brand-violet: var(--color-brand-violet);
+  --color-brand-lavender: var(--color-brand-lavender);
+  --color-brand-accent: var(--color-brand-accent);
+
+  --font-sans: var(--font-roboto);
+
+  --shadow-elevation-1: 0 1px 2px rgba(0, 23, 36, 0.06), 0 2px 8px rgba(0, 23, 36, 0.07);
+  --shadow-elevation-2: 0 2px 4px rgba(0, 23, 36, 0.08), 0 8px 20px rgba(0, 23, 36, 0.12);
+  --shadow-elevation-3: 0 4px 10px rgba(0, 23, 36, 0.12), 0 16px 32px rgba(0, 23, 36, 0.16);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .mat-card {
+    @apply rounded-xl border border-steel-blue-100 bg-white shadow-[var(--shadow-elevation-1)] transition-shadow duration-150;
+  }
+
+  .mat-card-interactive {
+    @apply rounded-xl border border-steel-blue-100 bg-white shadow-[var(--shadow-elevation-1)] transition-shadow duration-150 hover:shadow-[var(--shadow-elevation-2)];
+  }
+
+  .mat-label {
+    @apply text-xs font-medium uppercase tracking-wide text-brand-violet;
+  }
+
+  .mat-input {
+    @apply rounded-lg border border-steel-blue-200 bg-white px-3 py-2 text-base text-brand-navy shadow-sm transition-shadow placeholder:text-steel-blue-400 focus:border-brand-accent focus:outline-none focus:ring-2 focus:ring-brand-accent/25;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold shadow-[var(--shadow-elevation-1)] transition-all duration-150 hover:shadow-[var(--shadow-elevation-2)] active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none bg-brand-indigo text-white hover:bg-brand-indigo-dark;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold shadow-[var(--shadow-elevation-1)] transition-all duration-150 hover:shadow-[var(--shadow-elevation-2)] active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none border border-steel-blue-200 bg-white text-brand-indigo hover:bg-steel-blue-50;
+  }
+
+  .btn-success {
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-b from-emerald-700 to-emerald-800 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(4,120,87,0.4)] transition-all duration-150 hover:from-emerald-800 hover:to-emerald-900 hover:shadow-[0_6px_20px_rgba(4,120,87,0.5)] active:shadow-[0_2px_6px_rgba(4,120,87,0.4)] disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-b from-brick-red-700 to-brick-red-800 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(93,9,14,0.45)] transition-all duration-150 hover:from-brick-red-800 hover:to-brick-red-900 hover:shadow-[0_6px_20px_rgba(93,9,14,0.55)] active:shadow-[0_2px_6px_rgba(93,9,14,0.4)] disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg px-3 py-1.5 text-sm font-medium text-brand-violet transition-colors hover:bg-steel-blue-50 hover:text-brand-indigo;
+  }
+
+  .badge-success {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-600/20;
+  }
+
+  .badge-danger {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide bg-brick-red-50 text-brick-red-700 ring-1 ring-inset ring-brick-red-600/20;
+  }
+
+  .badge-critical {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide bg-molten-lava-50 text-molten-lava-700 ring-1 ring-inset ring-molten-lava-600/30;
+  }
+
+  .badge-outbound {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide bg-papaya-whip-50 text-papaya-whip-700 ring-1 ring-inset ring-papaya-whip-600/20;
+  }
+
+  .badge-info {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide bg-steel-blue-50 text-brand-indigo ring-1 ring-inset ring-brand-indigo/15;
+  }
 }

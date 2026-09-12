@@ -1,7 +1,28 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)"
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)",
+      "Bash(npm view *)",
+      "Bash(docker --version)",
+      "Bash(docker compose *)",
+      "Bash(npm install *)",
+      "Bash(npm audit *)",
+      "Bash(npm ls *)",
+      "Bash(npm uninstall *)",
+      "Bash(groups; ls *)",
+      "Read(//run/**)",
+      "Bash(sudo -n docker compose up -d)",
+      "Bash(npx prisma *)",
+      "Bash(npx vitest *)",
+      "Bash(cp src/lib/auth-guard.ts /tmp/auth-guard.ts.bak)",
+      "Bash(python3 -c ' *)",
+      "Read(//tmp/**)",
+      "Bash(npm test *)",
+      "Bash(node -e ' *)",
+      "Bash(DATABASE_URL=\"postgresql://factory:factory@localhost:5432/factory_management_test?schema=public\" npx prisma migrate deploy)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
     ]
   }
 }
