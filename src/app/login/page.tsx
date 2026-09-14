@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { LoginForm } from "@/app/login/LoginForm";
 import { Logo } from "@/components/Logo";
-import { FactoryIllustration } from "@/components/FactoryIllustration";
 
 export default async function LoginPage({
   searchParams,
@@ -13,8 +13,15 @@ export default async function LoginPage({
     <div className="flex min-h-screen flex-col md:flex-row">
       {/* Logo panel */}
       <div className="relative flex flex-1 items-center justify-center overflow-hidden bg-white p-10">
-        <FactoryIllustration className="absolute inset-0 h-full w-full scale-110 opacity-25 blur-md" />
-        <div className="absolute inset-0 bg-white/60" />
+        <Image
+          src="/images/factory-warehouse.jpg"
+          alt=""
+          fill
+          priority
+          sizes="50vw"
+          className="scale-110 object-cover opacity-40 blur-sm"
+        />
+        <div className="absolute inset-0 bg-white/55" />
         <div className="relative z-10">
           <Logo theme="dark" size="full" />
         </div>
