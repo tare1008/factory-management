@@ -2,6 +2,7 @@ import Link from "next/link";
 import { auth, signOut } from "@/lib/auth";
 import { hasRole } from "@/lib/auth-guard";
 import { Logo } from "@/components/Logo";
+import { NavLinkHint } from "@/components/NavLinkHint";
 
 export async function TopBar() {
   const session = await auth();
@@ -31,6 +32,7 @@ export async function TopBar() {
               className="text-sm font-medium text-steel-blue-200 transition-colors hover:text-papaya-whip-400"
             >
               {link.label}
+              <NavLinkHint />
             </Link>
           ))}
           {session?.user.role === "OWNER" && (
@@ -39,6 +41,7 @@ export async function TopBar() {
               className="text-sm font-medium text-steel-blue-200 transition-colors hover:text-papaya-whip-400"
             >
               Users
+              <NavLinkHint />
             </Link>
           )}
         </nav>
