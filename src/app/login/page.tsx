@@ -19,7 +19,7 @@ export default async function LoginPage({
           fill
           priority
           sizes="50vw"
-          className="scale-110 object-cover opacity-40 blur-sm"
+          className="scale-110 object-cover opacity-40 blur-[2.8px]"
         />
         <div className="absolute inset-0 bg-white/55" />
         <div className="relative z-10">
