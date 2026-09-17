@@ -17,14 +17,14 @@ export async function TopBar() {
 
   return (
     <header className="bg-gradient-to-r from-deep-space-blue-950 via-deep-space-blue-800 to-steel-blue-700 shadow-[var(--shadow-elevation-2)]">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-3 px-4 py-3.5 md:grid-cols-3">
-        <div className="flex justify-center md:justify-start">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-3.5 md:flex-row">
+        <div className="flex shrink-0 justify-center md:justify-start">
           <Link href="/" className="transition-opacity hover:opacity-90">
             <Logo theme="light" size="compact" />
           </Link>
         </div>
 
-        <nav className="flex flex-nowrap items-center justify-center gap-3 overflow-x-auto sm:gap-5">
+        <nav className="flex flex-1 flex-wrap items-center justify-center gap-x-4 gap-y-1 md:flex-nowrap">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -46,7 +46,7 @@ export async function TopBar() {
           )}
         </nav>
 
-        <div className="flex flex-nowrap items-center justify-center gap-3 overflow-x-auto text-sm text-steel-blue-200 md:justify-end">
+        <div className="flex shrink-0 flex-wrap items-center justify-center gap-3 text-sm text-steel-blue-200 md:justify-end">
           <span className="whitespace-nowrap italic">
             {session?.user.username}{" "}
             <span className="font-semibold not-italic text-white">
