@@ -24,12 +24,12 @@ export async function TopBar() {
           </Link>
         </div>
 
-        <nav className="flex flex-wrap items-center justify-center gap-5">
+        <nav className="flex flex-nowrap items-center justify-center gap-3 overflow-x-auto sm:gap-5">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-steel-blue-200 transition-colors hover:text-papaya-whip-400"
+              className="whitespace-nowrap text-sm font-medium text-steel-blue-200 transition-colors hover:text-papaya-whip-400"
             >
               {link.label}
               <NavLinkHint />
@@ -38,7 +38,7 @@ export async function TopBar() {
           {session?.user.role === "OWNER" && (
             <Link
               href="/users"
-              className="text-sm font-medium text-steel-blue-200 transition-colors hover:text-papaya-whip-400"
+              className="whitespace-nowrap text-sm font-medium text-steel-blue-200 transition-colors hover:text-papaya-whip-400"
             >
               Users
               <NavLinkHint />
@@ -46,8 +46,8 @@ export async function TopBar() {
           )}
         </nav>
 
-        <div className="flex items-center justify-center gap-3 text-sm text-steel-blue-200 md:justify-end">
-          <span className="italic">
+        <div className="flex flex-nowrap items-center justify-center gap-3 overflow-x-auto text-sm text-steel-blue-200 md:justify-end">
+          <span className="whitespace-nowrap italic">
             {session?.user.username}{" "}
             <span className="font-semibold not-italic text-white">
               ({session?.user.role})
